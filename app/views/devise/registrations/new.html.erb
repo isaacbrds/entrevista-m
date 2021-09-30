@@ -16,7 +16,7 @@
     <div class="mb-3">
       <%= f.label :password , class: "form-label"  %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
       <%= f.password_field :password , class: "form-control"%>
     </div>
