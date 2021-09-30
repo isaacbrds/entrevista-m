@@ -8,7 +8,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <% if current_user %>
-                    <%= link_to 'My Posts', posts_path, class: "dropdown-item" %>     
+                    <%= link_to t('My Posts'), posts_path, class: "dropdown-item" %>     
                     <% end %>
                 </li>
                 
@@ -25,11 +25,11 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             
                             <li>
-                                <%= link_to 'Edit',edit_user_registration_path(current_user), class: "dropdown-item" %>
+                                <%= link_to t('edit'),edit_user_registration_path(current_user), class: "dropdown-item" %>
                             </li>
                             <li><hr class="dropdown-divider" /></li>
                             <li>
-                                <%= link_to 'Logout',destroy_user_session_path,method: :delete, class: "dropdown-item" %>
+                                <%= link_to t('logout'),destroy_user_session_path,method: :delete, class: "dropdown-item" %>
                             </li>
                     </li>
                 </ul>

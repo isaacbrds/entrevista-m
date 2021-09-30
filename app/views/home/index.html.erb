@@ -1,13 +1,14 @@
-
-<% @posts.each do |post| %>
-        
-        <h1 class="display-5 fw-bold"><%= post.title %> - Created by <%= post.user.email %> </h1>
-        
-        <p class="col-md-8 fs-4"><%= post.description %></p>
-        
-        <%= link_to "Show", post_path(post),  class: "btn btn-primary btn-lg" %>
-        
-        <br />
-        
-      
-<% end %>
+<section class="py-5">
+  <% @posts.each do |post| %>
+          
+          <h1 class="display-5 fw-bold"><%= post.title %> - Created by <%= post.user.email %> </h1>
+          
+          <p class="col-md-8 fs-4"><%= post.description %></p>
+          
+          <%= link_to t("show"), post_path(post),  class: "btn btn-primary btn-lg" %>
+          
+          <br />
+          
+  
+  <% end %>
+</section>
