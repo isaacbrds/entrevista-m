@@ -13,6 +13,19 @@
     <strong>Dono</strong> : <%= @post.user.email %>
   </p>
   
+  <% if @comment.errors.any? %>
+    <%= @comment.errors.full_messages.join(', ')%>
+  <% end %>
+
+  <h3>Add Comment: </h3>
+  <%= form_with model: [@post, @comment], local: true do |f| %>
+    <%= f.text_field :description %>
+    <%= f.submit "Comment" %>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    [ <%= comment.created_at.strftime("%d/%m/%Y") %> ] - <%= comment.user.email %> - <%= comment.description %> <br/>
+  <% end %>
+
   <%= link_to 'Back',  posts_path %>
-  
 </section>

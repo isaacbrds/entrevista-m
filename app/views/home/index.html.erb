@@ -1,14 +1,18 @@
 <section class="py-5">
+  <% if @posts.count() > 0%>
   <% @posts.each do |post| %>
           
           <h1 class="display-5 fw-bold"><%= post.title %> - Created by <%= post.user.email %> </h1>
           
-          <p class="col-md-8 fs-4"><%= post.description %></p>
+          <p class="col-md-8 fs-4"><%= post.description.to_plain_text.truncate_words(100) %></p>
           
           <%= link_to t("show"), post_path(post),  class: "btn btn-primary btn-lg" %>
           
           <br />
           
   
+  <% end %>
+  <% else %>
+    <div class="text-align center">No posts yet.</div>
   <% end %>
 </section>

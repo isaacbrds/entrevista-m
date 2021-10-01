@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :destroy, :update, :show]
   before_action :authenticate_user!, except: [:show]
   def index 
-    @posts = Post.where(user: current_user)
+    @posts = Post.where(user_id: current_user)
   end
 
   def new  
@@ -29,7 +29,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def show;  end
+  def show
+    @comment = Comment.new
+    @comments = @post.comments.order("created_at DESC")
+  end
 
   def destroy 
     @post.destroy
@@ -38,7 +41,7 @@ class PostsController < ApplicationController
   private 
 
   def post_params 
-    params.require(:post).permit(:title, :description, :user_id)
+    params.require(:post).permit(:title, :description, :user_id )
   end
   
   def set_post 
